@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>满冠体育｜运动场景服务方案</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            background-color: #f5f6f8;
+            color: #1f2937;
+        }
+        a {
+            color: #d97706;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #b45309;
+        }
+
+        /* hero */
+        .hero {
+            background: #0b1120;
+            padding: 6rem 2rem 5rem;
+            text-align: center;
+            color: #e2e8f0;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d97706, #f59e0b, #d97706);
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+        }
+        .hero .tagline {
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0.5rem auto 1.2rem;
+            opacity: 0.85;
+        }
+        .hero .sub {
+            font-size: 0.95rem;
+            opacity: 0.65;
+            display: inline-block;
+            border-bottom: 1px dashed #3f4a5e;
+            padding-bottom: 0.25rem;
+        }
+
+        /* 公共容器 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* 优势区 */
+        .strength {
+            background: #ffffff;
+            padding: 4rem 0 3rem;
+        }
+        .strength .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: #f9fafb;
+            border-radius: 18px;
+            padding: 1.8rem 1.5rem;
+            transition: box-shadow 0.2s, transform 0.15s;
+            border: 1px solid #e5e7eb;
+        }
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+            transform: translateY(-3px);
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.65rem;
+            color: #111827;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .card h3::before {
+            content: '▹';
+            color: #d97706;
+            font-size: 1.2rem;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #4b5563;
+        }
+
+        /* 说明区 */
+        .explain {
+            background: #f0f2f5;
+            padding: 4rem 0;
+        }
+        .explain .two-col {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem 3.5rem;
+            align-items: flex-start;
+        }
+        .explain .col {
+            flex: 1 1 280px;
+        }
+        .explain h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #111827;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+        .explain p {
+            font-size: 1rem;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        .explain .highlight {
+            background: #ffffffb3;
+            padding: 1.2rem 1.8rem;
+            border-radius: 40px;
+            border-left: 4px solid #d97706;
+            font-weight: 450;
+            display: inline-block;
+            margin-top: 0.8rem;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #ffffff;
+            padding: 3.5rem 0 4rem;
+        }
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: #111827;
+            text-align: center;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1.1rem 0;
+        }
+        .faq-item:first-of-type {
+            border-top: 1px solid #e5e7eb;
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+            font-size: 1.05rem;
+        }
+        .faq-a {
+            color: #4b5563;
+            font-size: 0.95rem;
+            padding-left: 0.2rem;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            background: #0b1120;
+            padding: 2.8rem 0 2.5rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+        .footer-links .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .footer-links .sentence {
+            font-size: 1rem;
+            color: #d1d5db;
+        }
+        .footer-links .sentence a {
+            color: #fbbf24;
+            text-decoration: underline;
+        }
+        .footer-links .meta {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 0.8rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero .tagline {
+                font-size: 1rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .explain .two-col {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="container">
+        <h1>满冠体育</h1>
+        <p class="tagline">为场地运营、赛事组织与运动社群提供清晰的信息服务</p>
+        <span class="sub">识别用途 · 快速定位 · 一站了解</span>
+    </div>
+</section>
+
+<section class="strength">
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <h3>场景覆盖</h3>
+                <p>从场馆预约、赛事报名到成绩查询，围绕运动参与者的真实路径设计。</p>
+            </div>
+            <div class="card">
+                <h3>信息透明</h3>
+                <p>每个功能模块都有明确的说明，使用者可以快速理解当前页面能做什么。</p>
+            </div>
+            <div class="card">
+                <h3>结构清晰</h3>
+                <p>导航、内容、操作入口区分明了，减少寻找成本，把时间留给运动本身。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="explain">
+    <div class="container">
+        <div class="two-col">
+            <div class="col">
+                <h2>这是一个什么样的网站</h2>
+                <p>如果你第一次来到 <a href="https://site-mgsport.com">满冠体育</a>，可能会好奇它具体提供什么。简单说，它是围绕体育场景搭建的信息平台：场馆方可以发布空闲时段，运动者可以查看场地状态和活动安排，组织方也能找到赛事管理的基础工具。</p>
+                <p>没有多余的装饰，每一项功能都对应线下实际需求。你不需要注册就能浏览大部分内容——这原本就是体育该有的气质：低门槛、直接、不绕弯。</p>
+            </div>
+            <div class="col">
+                <p>网站从结构上区分了「场地」和「赛事」两大主线，每条线下又细分了列表、详情、状态追踪。你看到的每一个按钮、每一段文字，都经过梳理，目标是让你在三次点击之内找到想看的页面。</p>
+                <div class="highlight">体育服务的底色是诚信，满冠体育选择把规则和流程说清楚。</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq-summary">
+    <div class="container">
+        <h2>常见疑问 · 摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">这个网站需要注册才能使用吗？</div>
+            <div class="faq-a">浏览场地信息、赛事公告、了解服务内容都不需要登录。只有涉及报名或预订时才会引导注册，且过程简洁。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">如何确认某个场馆的真实状态？</div>
+            <div class="faq-a">每个场地页面都标注了最近更新时间和联系方式。如果仍有疑问，可以直接通过页面提供的渠道咨询运营方。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">赛事报名后多久能收到反馈？</div>
+            <div class="faq-a">通常报名提交后24小时内会有确认信息（短信或站内通知），具体以各赛事规程说明为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">网站上的信息由谁维护？</div>
+            <div class="faq-a">场馆和赛事信息由合作方自行维护更新，平台提供标准接口。建议以页面标注的“最后更新”时间为参考。</div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-links">
+    <div class="container">
+        <p class="sentence">
+            想要了解更多关于场地、赛事或合作方式，可以直接访问
+            <a href="https://site-mgsport.com">满冠体育</a>
+            ，首页和各分类页都有详细说明。
+        </p>
+        <p class="meta">基于真实服务逻辑构建 · 为运动参与者提供可靠参考</p>
+    </div>
+</footer>
+
+</body>
+</html>
